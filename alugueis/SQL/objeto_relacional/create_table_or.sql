@@ -114,7 +114,7 @@ CREATE OR REPLACE TYPE BODY tp_corretor AS
             dbms_output.put_line('Data nascimento: ' || data_nasc);
             dbms_output.put_line('Data admissão: ' || data_admissao);
             dbms_output.put_line('Telefone primário: ' || telefone(0));
-            dbms_output.put_line('CPF do supervisor ' || DEREF(supervisor).cpf);
+            dbms_output.put_line('CPF do supervisor ' || VALUE(supervisor).cpf);
 END;
 /
 
@@ -182,6 +182,8 @@ INSERT INTO tb_endereco VALUES (tp_endereco(
     '55123456', 'A', 'Bairro Leal', 'Rua 9',
     'Vitória de todos os santos', 'PE'
 ));
+/
+
 INSERT INTO tb_corretor VALUES (
     '12345678910', 'George Matias', 'M',
     TO_DATE('10/02/2000', 'dd/mm/yyyy'),
@@ -192,4 +194,7 @@ INSERT INTO tb_corretor VALUES (
     (SELECT REF(t) FROM tb_endereco t WHERE cep = '55123456'),
     TO_DATE('10/02/2000', 'dd/mm/yyyy'), 0, NULL
 );
+/
+
 SELECT VALUE(t).cpf AS cpf_corretor FROM tb_corretor t;
+/
