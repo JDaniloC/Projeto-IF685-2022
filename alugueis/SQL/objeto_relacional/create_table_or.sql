@@ -75,6 +75,9 @@ CREATE OR REPLACE TYPE BODY tp_corretor AS
             data_nasc := corretor.data_nasc;
             telefone := corretor.telefone;
             endereco := corretor.endereco;
+	    data_admissao := corretor.data_admissao;
+	    salario := corretor.salario;
+	    cpf_supervisor := corretor.cpf_supervisor;
             RETURN;
         END;
     ORDER MEMBER FUNCTION compara_salario (SELF IN OUT NOCOPY tp_endereco, e tp_endereco) RETURN NUMBER IS
@@ -98,9 +101,9 @@ CREATE OR REPLACE TYPE BODY tp_corretor AS
             dbms_output.put_line('Sexo: ' || sexo);
             dbms_output.put_line('Data nascimento: ' || data_nasc);
             dbms_output.put_line('Telefone primário: ' || telefone(0));
-            dbms_output.put_line('CPF: ' || cpf);
-            dbms_output.put_line('Nome: ' || nome);
-            dbms_output.put_line('Sexo: ' || sexo);
+            dbms_output.put_line('Data de admissão: ' || data_admissao);
+            dbms_output.put_line('Salário: ' || salario);
+            dbms_output.put_line('CPF do supervisor: ' || cpf_supervisor);
 END;
 /
 
