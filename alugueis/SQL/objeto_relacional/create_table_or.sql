@@ -127,13 +127,13 @@ CREATE OR REPLACE TYPE tp_locatario UNDER tp_cliente();
 CREATE OR REPLACE TYPE tp_fiador UNDER tp_cliente();
 /
 
-CREATE OR REPLACE TYPE tp_lucro AS OBJECT(
+CREATE OR REPLACE TYPE tp_lucro AS OBJECT (
     porc_locador NUMBER(6, 2), 
     porc_corretor NUMBER(6, 2) 
 );
 /
 
-CREATE OR REPLACE TYPE tp_aluguel AS OBJECT(
+CREATE OR REPLACE TYPE tp_aluguel AS OBJECT (
   	data_inicio DATE,
   	data_final DATE,
   	luro tp_lucro,
@@ -145,14 +145,14 @@ CREATE OR REPLACE TYPE tp_aluguel AS OBJECT(
 CREATE OR REPLACE TYPE tp_nt_aluguel AS TABLE OF tp_aluguel;
 /
 
-CREATE OR REPLACE TYPE tp_sala AS OBJECT(
+CREATE OR REPLACE TYPE tp_sala AS OBJECT (
     codigo INTEGER,
-    dono tp_locador,
     area NUMBER(6, 2),
-    alugueis tp_nt_aluguel,
 	preco_unit NUMBER(6, 2),
+    alugueis tp_nt_aluguel,
     endereco REF tp_endereco,
-    administrador tp_corretor
+    dono tp_locador,
+    administrador REF tp_corretor
 );
 /
 
