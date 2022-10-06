@@ -164,3 +164,132 @@ INSERT INTO tb_sala (
 	(SELECT REF(t) FROM tb_corretor t WHERE cpf = '654.312.123-66')
 );
 
+INSERT INTO tb_sala (codigo, area, preco_unit, alugueis, endereco, dono, administrador)
+VALUES (
+    456,
+    64,
+    120,
+    tp_nt_aluguel(
+        tp_aluguel(
+            TO_DATE('02/09/2022', 'dd/mm/yyyy'),
+            TO_DATE('22/09/2022', 'dd/mm/yyyy'),
+            tp_lucro(
+                45,
+                55
+            ),
+            tp_fiador(
+                '829.491.020-18', 
+                'Rose', 
+                'F', 
+                TO_DATE('03/05/2001', 'dd/mm/yyyy'), 
+                tp_array_telefone('793470-9172'),
+                '62011140'
+            ),
+            tp_locatario(
+                '522.046.960-64', 
+                'Matheus', 
+                'M', 
+                TO_DATE('06/02/1987', 'dd/mm/yyyy'), 
+                tp_array_telefone('893183-7222'),
+                '62011140'
+            )
+        )
+    ),
+    (SELECT REF(E) FROM tb_endereco E WHERE cep = '62011140'),
+    tp_locador(
+        '123.419.870-36',
+        'Luisa', 
+        'F', 
+        TO_DATE('06/09/1986', 'dd/mm/yyyy'), 
+        tp_array_telefone('492677-9367'),
+        '01045001'
+    ),
+    (SELECT REF(C) FROM tb_corretor C WHERE cpf = '948.695.710-05')
+);
+
+INSERT INTO tb_sala (codigo, area, preco_unit, alugueis, endereco, dono, administrador)
+VALUES (
+    460,
+    40,
+    60,
+    tp_nt_aluguel(
+        tp_aluguel(
+            TO_DATE('02/07/2022', 'dd/mm/yyyy'),
+            TO_DATE('22/09/2022', 'dd/mm/yyyy'),
+            tp_lucro(
+                65,
+                45
+            ),
+            tp_fiador(
+                '521.907.640-09',
+                'Bruno', 
+                'M', 
+                TO_DATE('04/02/1992', 'dd/mm/yyyy'), 
+                tp_array_telefone('193233-7193'),
+                '30130005'
+            ),
+            tp_locatario(
+                '146.000.310-16', 
+                'Maria Alice', 
+                'F', 
+                TO_DATE('10/03/1989', 'dd/mm/yyyy'), 
+                tp_array_telefone('993240-3583'),
+                '30130005'
+            )
+        )
+    ),
+    (SELECT REF(E) FROM tb_endereco E WHERE cep = '16015244'),
+    tp_locador(
+        '091.665.070-73', 
+        'Guilherme', 
+        'M', 
+        TO_DATE('08/02/1995', 'dd/mm/yyyy'), 
+        tp_array_telefone('492275-6381'),
+        '13216000'
+    ),
+    (SELECT REF(C) FROM tb_corretor C WHERE cpf = '602.312.980-30')
+);
+
+INSERT INTO tb_sala (codigo, area, preco_unit, alugueis, endereco, dono, administrador)
+VALUES (
+    455,
+    100,
+    200,
+    tp_nt_aluguel(
+        tp_aluguel(
+            TO_DATE('02/01/2022', 'dd/mm/yyyy'),
+            TO_DATE('22/04/2022', 'dd/mm/yyyy'),
+            tp_lucro(
+                50,
+                50
+            ),
+            tp_fiador(
+                '657.885.490-86', 
+                'Fernanda', 
+                'F', 
+                TO_DATE('08/08/1987', 'dd/mm/yyyy'), 
+                tp_array_telefone('192385-5637'),
+                '16015244'
+            ),
+            tp_locatario(
+                '053.428.500-70', 
+                'José Felipe', 
+                'M', 
+                TO_DATE('07/10/1987', 'dd/mm/yyyy'), 
+                tp_array_telefone('692064-4037'),
+                '16015244'
+            )
+        )
+    ),
+    (SELECT REF(E) FROM tb_endereco E WHERE cep = '14401150'),
+    tp_locador(
+        '481.531.180-30', 
+        'Martina', 
+        'F', 
+        TO_DATE('11/01/1989', 'dd/mm/yyyy'), 
+        tp_array_telefone('792476-5710'),
+        '03318000'
+    ),
+    (SELECT REF(C) FROM tb_corretor C WHERE cpf = '970.465.370-03')
+);
+
