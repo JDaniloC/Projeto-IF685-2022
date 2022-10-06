@@ -136,8 +136,8 @@ INSERT INTO tb_corretor VALUES (
 -- Salas
 
 INSERT INTO tb_sala (
-	codigo, dono, area, alugueis,
-	preco_unit, endereco, administrador
+	codigo, area, preco_unit, alugueis,
+    endereco, dono, administrador
 ) VALUES (
 	0, 100, 100, tp_nt_aluguel(tp_aluguel(
 		TO_DATE('01/01/2010', 'dd/mm/yyyy'),
@@ -164,3 +164,83 @@ INSERT INTO tb_sala (
 	(SELECT REF(t) FROM tb_corretor t WHERE cpf = '654.312.123-66')
 );
 
+INSERT INTO tb_sala (
+	codigo, area, preco_unit, alugueis,
+    endereco, dono, administrador
+) VALUES (
+	1, 200, 300, tp_nt_aluguel(tp_aluguel(
+		TO_DATE('01/01/2011', 'dd/mm/yyyy'),
+		TO_DATE('01/02/2012', 'dd/mm/yyyy'),
+		tp_lucro(40, 60), tp_fiador(
+			'668.011.180-30', 'Marcos', 'M',
+            TO_DATE('07/09/1985', 'dd/mm/yyyy'),
+            tp_array_telefone(tp_telefone('393375-1232')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '29141765')),
+		tp_locatario(
+			'103.320.160-05', 'Arthur', 'M',
+			TO_DATE('03/12/1988', 'dd/mm/yyyy'), 
+			tp_array_telefone(tp_telefone('492714-2661')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '43815300'))
+	)),
+	(SELECT REF(t) FROM tb_endereco t WHERE cep = '90480000'),
+	tp_locador(
+		'804.759.740-00', 'Maria Flor', 'F', 
+		TO_DATE('07/01/1993', 'dd/mm/yyyy'),
+		tp_array_telefone(tp_telefone('792117-7403')),
+		(SELECT REF(t) FROM tb_endereco t WHERE cep = '29141765')),
+	(SELECT REF(t) FROM tb_corretor t WHERE cpf = '970.465.370-03')
+);
+
+INSERT INTO tb_sala (
+	codigo, area, preco_unit, alugueis,
+    endereco, dono, administrador
+) VALUES (
+	2, 50, 150, tp_nt_aluguel(tp_aluguel(
+		TO_DATE('01/01/2009', 'dd/mm/yyyy'),
+		TO_DATE('01/02/2013', 'dd/mm/yyyy'),
+		tp_lucro(10, 90), tp_fiador(
+			'259.829.110-70', 'Fabiana', 'F',
+            TO_DATE('09/11/1994', 'dd/mm/yyyy'),
+            tp_array_telefone(tp_telefone('892216-0150')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '79002290')),
+		tp_locatario(
+			'019.588.030-73', 'Lucas Henrique', 'M',
+			TO_DATE('03/08/1999', 'dd/mm/yyyy'),
+			tp_array_telefone(tp_telefone('192884-8564')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '79002290'))
+	)),
+	(SELECT REF(t) FROM tb_endereco t WHERE cep = '29141765'),
+	tp_locador(
+		'652.730.540-01', 'Isabela', 'F',
+		TO_DATE('08/07/1985', 'dd/mm/yyyy'),
+		tp_array_telefone(tp_telefone('292233-8576')),
+		(SELECT REF(t) FROM tb_endereco t WHERE cep = '59063340')),
+	(SELECT REF(t) FROM tb_corretor t WHERE cpf = '261.319.150-32')
+);
+
+INSERT INTO tb_sala (
+	codigo, area, preco_unit, alugueis,
+    endereco, dono, administrador
+) VALUES (
+	3, 350, 75, tp_nt_aluguel(tp_aluguel(
+		TO_DATE('01/01/2012', 'dd/mm/yyyy'),
+		TO_DATE('01/02/2015', 'dd/mm/yyyy'),
+		tp_lucro(40, 60), tp_fiador(
+			'379.840.440-23', 'Roberto', 'M',
+            TO_DATE('10/06/1983', 'dd/mm/yyyy'),
+            tp_array_telefone(tp_telefone('293458-3845')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '68376315')),
+		tp_locatario(
+			'169.161.620-66', 'Virginia', 'F',
+			TO_DATE('09/07/1991', 'dd/mm/yyyy'),
+			tp_array_telefone(tp_telefone('292896-8620')),
+			(SELECT REF(t) FROM tb_endereco t WHERE cep = '68376315'))
+	)),
+	(SELECT REF(t) FROM tb_endereco t WHERE cep = '51020280'),
+	tp_locador(
+		'302.292.330-90', 'Levi', 'M',
+		TO_DATE('10/08/2003', 'dd/mm/yyyy'),
+		tp_array_telefone(tp_telefone('992677-9486')),
+		(SELECT REF(t) FROM tb_endereco t WHERE cep = '66055260')),
+	(SELECT REF(t) FROM tb_corretor t WHERE cpf = '140.067.983-45')
+);

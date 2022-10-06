@@ -173,7 +173,8 @@ CREATE TABLE tb_corretor OF tp_corretor (
 
 CREATE TABLE tb_sala OF tp_sala (
     CONSTRAINT sala_pkey PRIMARY KEY(codigo),
-    endereco WITH ROWID REFERENCES tb_endereco
+    endereco WITH ROWID REFERENCES tb_endereco,
+    administrador WITH ROWID REFERENCES tb_corretor
 ) NESTED TABLE alugueis STORE AS tb_alugueis;
 /
 
