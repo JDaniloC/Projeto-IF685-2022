@@ -14,13 +14,15 @@ INSERT INTO tb_corretor VALUES (
     (SELECT REF(t) FROM tb_endereco t WHERE cep = '03962040'),
     TO_DATE('13/07/2020', 'dd/mm/yyyy'), 3750, NULL);
 
-SELECT DEREF(C.endereco).rua AS RUA, DEREF(C.endereco).nome AS NOME, DEREF(C.endereco).numero AS NUMERO, DEREF(C.endereco).cep AS CEP FROM tb_corretor c WHERE DEREF(c.endereco).estado = 'SP';
+SELECT C.nome as NOME, DEREF(C.endereco).rua as RUA, DEREF(C.endereco).bairro AS BAIRRO,
+DEREF(C.endereco).cep AS CEP 
+FROM tb_corretor C WHERE DEREF(C.endereco).estado = 'SP';
 
 -- Varray
-SELECT nome, cpf, c.endereco.rua AS rua, c.endereco.estado AS estado, T.* FROM tb_cliente c, TABLE(c.telefones) T; 
+SELECT nome, cpf, c.endereco.rua AS rua, c.endereco.estado AS estado, T.* FROM tb_corretor c, TABLE(c.telefones) T; 
 
 -- Nested Table
-SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area > 2);
-SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area < 2);
+-- SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area > 2);
+-- SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area < 2);
 
 
