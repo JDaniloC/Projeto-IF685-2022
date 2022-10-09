@@ -22,7 +22,17 @@ FROM tb_corretor C WHERE DEREF(C.endereco).estado = 'SP';
 SELECT nome, cpf, c.endereco.rua AS rua, c.endereco.estado AS estado, T.* FROM tb_corretor c, TABLE(c.telefones) T; 
 
 -- Nested Table
--- SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area > 2);
--- SELECT * FROM TABLE(SELECT S.alugueis FROM tb_sala S WHERE S.area < 2);
+
+SELECT A.locatario.nome AS Nome_Locatario, A.locatario.cpf AS CPF_LOCATARIO, A.luro.porc_corretor as LUCRO_CORRETOR, 
+A.luro.porc_locador as LUCRO_LOCADOR, A.fiador.nome AS Nome_Fiador, A.fiador.cpf AS CPF_FIADOR
+FROM TABLE(SELECT S.alugueis 
+            FROM tb_sala S 
+            WHERE S.area = 50)A;
+            
+SELECT A.locatario.nome AS Nome_Locatario, A.locatario.cpf AS CPF_LOCATARIO, A.luro.porc_corretor as LUCRO_CORRETOR, 
+A.luro.porc_locador as LUCRO_LOCADOR, A.fiador.nome AS Nome_Fiador, A.fiador.cpf AS CPF_FIADOR
+FROM TABLE(SELECT S.alugueis 
+            FROM tb_sala S 
+            WHERE S.preco_unit = 75)A;
 
 
