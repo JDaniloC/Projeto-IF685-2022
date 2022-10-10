@@ -18,6 +18,13 @@ SELECT C.nome as NOME, DEREF(C.endereco).rua as RUA, DEREF(C.endereco).bairro AS
 DEREF(C.endereco).cep AS CEP 
 FROM tb_corretor C WHERE DEREF(C.endereco).estado = 'SP';
 
+-- Overriding member procedure 
+DECLARE corretor_atual tp_corretor;
+BEGIN
+    SELECT VALUE(C) INTO corretor_atual FROM tb_corretor C WHERE cpf = '654.312.123-66'; 
+    corretor_atual.imprimir_informacoes();
+end;
+
 -- Varray
 SELECT nome, cpf, c.endereco.rua AS rua, c.endereco.estado AS estado, T.* FROM tb_corretor c, TABLE(c.telefones) T; 
 
@@ -34,5 +41,3 @@ A.luro.porc_locador as LUCRO_LOCADOR, A.fiador.nome AS Nome_Fiador, A.fiador.cpf
 FROM TABLE(SELECT S.alugueis 
             FROM tb_sala S 
             WHERE S.preco_unit = 75)A;
-
-
