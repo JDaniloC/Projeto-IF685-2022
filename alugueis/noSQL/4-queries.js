@@ -49,7 +49,7 @@ db.Championships.aggregate([{
     }
 }, {
     $count: 'teams'
-}])
+}]);
 
 // [Count] [Match] [Cond] Porcentagem de times com meninas
 let teamsWithGirls = db.Teams.aggregate([{
@@ -91,7 +91,7 @@ db.Championships.find({
 }).pretty();
 
 
-// [Aggregate] [AVG] Retorna a média de premiação de todos os campeonatos
+// [Aggregate] [Avg] Retorna a média de premiação de todos os campeonatos
 db.Championships.aggregate([
     {
         $group:
@@ -123,11 +123,12 @@ db.Teams.updateOne({name: "Imperial"}, {$unset: {"trainer": null}});
 db.Teams.find({trainer: {$exists: false}}).pretty();
 
 
-// [All] [Pretty]: Lista os campeonatos em que possuem os times listados (Furia e Imperial)
-db.Championships.find({teams: {$all: [
-    db.teams.findOne({name: "Furia"})._id,
-    db.teams.findOne({name: "Imperial"})._id,
-]}}).pretty();
+// [All] [Pretty]: Lista os campeonatos no qual esses dois times participaram
+db.Championships.find({
+    "matches.teams": {
+        $all: ["Flamengo", "NY city"]
+    }
+}).pretty();
 
 
 // [Where] [Function] Devolve todos os times com pontuação superior a 0
@@ -140,9 +141,9 @@ db.Teams.find({
 
 // [MapReduce] [Sum] A soma de todas as pontuações dos times
 var mapFunction = function() {
-    emit(this.score) 
+    emit(null, this.score) 
 }
-var reduceFunction = function(scores) {
+var reduceFunction = function(name, scores) {
     return Array.sum(scores) 
 }
 db.Teams.mapReduce(
