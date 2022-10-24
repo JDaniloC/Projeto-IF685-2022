@@ -1,7 +1,7 @@
 // use championshipManagement
 
 db.createCollection("games");
-db.Games.insertMany([
+db.games.insertMany([
     {
         "name": "Fifa 2019",
         "platform": "PS4",
@@ -23,14 +23,14 @@ db.Games.insertMany([
 ]);
 
 db.createCollection("teams");
-db.Teams.insertMany([
+db.teams.insertMany([
     { // Times de Fifa
         "name": "Flamengo",
         "trainer": "Olavo aguiar",
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Fifa 2019"})._id
+            $id: db.games.findOne({name: "Fifa 2019"})._id
         },
         "players": [
             {
@@ -49,7 +49,7 @@ db.Teams.insertMany([
         "nationality": "Estadunidense",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Fifa 2019"})._id
+            $id: db.games.findOne({name: "Fifa 2019"})._id
         },
         "players": [
             {
@@ -68,7 +68,7 @@ db.Teams.insertMany([
         "nationality": "Alemanha",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Fifa 2019"})._id
+            $id: db.games.findOne({name: "Fifa 2019"})._id
         },
         "players": [
             {
@@ -87,7 +87,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Fifa 2019"})._id
+            $id: db.games.findOne({name: "Fifa 2019"})._id
         },
         "players": [
             {
@@ -106,7 +106,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "players": [
             {
@@ -153,7 +153,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "players": [
             {
@@ -200,7 +200,7 @@ db.Teams.insertMany([
         "nationality": "Alemanha",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "players": [
             {
@@ -247,7 +247,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "players": [
             {
@@ -294,7 +294,7 @@ db.Teams.insertMany([
         "nationality": "Americana",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Rainbow Six Siege"})._id
+            $id: db.games.findOne({name: "Rainbow Six Siege"})._id
         },
         "players": [
             {
@@ -342,7 +342,7 @@ db.Teams.insertMany([
         "nationality": "Americana",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Rainbow Six Siege"})._id
+            $id: db.games.findOne({name: "Rainbow Six Siege"})._id
         },
         "players": [
             {
@@ -390,7 +390,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Rainbow Six Siege"})._id
+            $id: db.games.findOne({name: "Rainbow Six Siege"})._id
         },
         "players": [
             {
@@ -438,7 +438,7 @@ db.Teams.insertMany([
         "nationality": "Brasileira",
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Rainbow Six Siege"})._id
+            $id: db.games.findOne({name: "Rainbow Six Siege"})._id
         },
         "players": [
             {

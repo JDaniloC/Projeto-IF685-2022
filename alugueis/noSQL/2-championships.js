@@ -1,6 +1,5 @@
 db.createCollection("championships");
-
-db.Championships.insertMany([
+db.championships.insertMany([
     {
         "name": "Campeonato Brasileiro de Fifa 2019",
         "startDate": new Date("2019-11-01"),
@@ -8,24 +7,24 @@ db.Championships.insertMany([
         "prize": 100000,
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "Fifa 2019"})._id
+            $id: db.games.findOne({name: "Fifa 2019"})._id
         },
         "teams": [
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Flamengo"})._id
+                $id: db.teams.findOne({name: "Flamengo"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "NY city"})._id
+                $id: db.teams.findOne({name: "NY city"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Frankfurt"})._id
+                $id: db.teams.findOne({name: "Frankfurt"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Santos"})._id
+                $id: db.teams.findOne({name: "Santos"})._id
             },
         ],
         "matches": [
@@ -53,24 +52,24 @@ db.Championships.insertMany([
         "prize": 10000,
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "teams": [
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Furia"})._id
+                $id: db.teams.findOne({name: "Furia"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Imperial"})._id
+                $id: db.teams.findOne({name: "Imperial"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "G2"})._id
+                $id: db.teams.findOne({name: "G2"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Natus vincere"})._id
+                $id: db.teams.findOne({name: "Natus vincere"})._id
             },
         ],
         "matches": [
@@ -98,20 +97,20 @@ db.Championships.insertMany([
         "prize": 500000,
         "game": {
             $ref: "games",
-            $id: db.Games.findOne({name: "CS GO"})._id
+            $id: db.games.findOne({name: "CS GO"})._id
         },
         "teams": [
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Furia"})._id
+                $id: db.teams.findOne({name: "Furia"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Imperial"})._id
+                $id: db.teams.findOne({name: "Imperial"})._id
             },
             {
                 $ref: "teams",
-                $id: db.Teams.findOne({name: "Natus vincere"})._id
+                $id: db.teams.findOne({name: "Natus vincere"})._id
             },
         ],
         "matches": [

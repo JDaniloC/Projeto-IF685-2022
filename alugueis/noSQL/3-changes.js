@@ -1,7 +1,7 @@
 // [RenameCollection] Renomeia as coleções para ficar capitalized
-db.Games.renameCollection("Games");
-db.Teams.renameCollection("Teams");
-db.Championships.renameCollection("Championships");
+db.games.renameCollection("Games");
+db.teams.renameCollection("Teams");
+db.championships.renameCollection("Championships");
 
 // [Save] Adiciona mais um campeonato
 db.Championships.save({
